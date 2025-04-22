@@ -17,6 +17,9 @@ Ein einfaches Web-Tool zur Verwaltung persönlicher Finanzen. Nutzer:innen könn
 - HTML, CSS
 - JavaScript
 
+## 📸 Screenshot
+![image](https://github.com/user-attachments/assets/8a3ae3f9-eb2e-493a-a811-7e2670d9b096)
+
 ## 🧩 Projektstruktur
 
 ```text
@@ -31,5 +34,3 @@ projekt/
 ├── style/
 │   └── style.css         # Stylesheet
 
-## 📸 Screenshot
-![image](https://github.com/user-attachments/assets/8a3ae3f9-eb2e-493a-a811-7e2670d9b096)
