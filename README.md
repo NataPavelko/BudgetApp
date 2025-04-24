@@ -1,8 +1,21 @@
-# 💸 Budget Tracker – Web-App zur Finanzverwaltung
+# BudgetApp 💰 - Personal Finance Tracker
 
-Ein benutzerfreundliches PHP-Projekt zur Erfassung, Kategorisierung und Analyse persönlicher Ausgaben und Einnahmen.  
-Ideal als Lernprojekt für Webentwicklung, Datenbankarbeit und grundlegende Finanzanalyse.
+[![PHP Version](https://img.shields.io/badge/PHP-7.4+-8892BF.svg)](https://php.net/)
+[![MySQL](https://img.shields.io/badge/MySQL-5.7+-4479A1.svg)](https://mysql.com)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
+A complete web application for tracking income and expenses with secure authentication, transaction categorization, and spending analytics.
+
+## 🌟 Features
+
+```mermaid
+graph LR
+    A[User Authentication] --> B[Transaction Management]
+    B --> C[Real-time Analytics]
+    B --> D[Data Visualization]
+    C --> E[Spending Reports]
+    D --> F[Responsive Dashboard]
+```
 ---
 
 ## 📌 Hauptfunktionen
@@ -42,20 +55,52 @@ Beendet die Session und leitet zur Startseite weiter.
 | HTML/CSS   | Struktur und Gestaltung der Oberfläche |
 | JavaScript | Dynamisches Nachladen der Kategorien (via `script.js`) |
 
----
 
 ## 🗃️ Projektstruktur
 
-```text
-projectBudget/
-├── index.php           # Login-Seite
-├── transaktion.php     # Formular zur Transaktionserfassung (dieser Code)
-├── analis.php          # Seite zur Analyse (nicht enthalten)
-├── profil.php          # Nutzerprofil
-├── aus.php             # Logout (Session-Ende)
-├── projekt.php         # PHP-Backend zur Verarbeitung von Formulardaten
-├── script.js           # JS für dynamische UI (z. B. Kategorien laden)
-├── style/
-│   └── style.css       # Hauptstylesheet
-└── README.md           # Dieses Dokument
+```mermaid
+%%{init: {'theme': 'neutral', 'themeVariables': { 'primaryColor': '#f5f5f5'}}}%%
+
+flowchart TD
+    A["index.php"] -->|Redirects to| B["transaktion.php"]
+    B -->|Submits to| C["projekt.php"]
+    C -->|Updates| D[(MySQL Database)]
+    
+    subgraph "PHP Files"
+        A
+        B
+        C
+        E["analis.php"]
+        F["profil.php"]
+        G["aus.php"]
+    end
+    
+    subgraph "Assets"
+        H["script.js"] --> B
+        I["style/style.css"] --> B
+        I --> A
+        I --> E
+        I --> F
+    end
+    
+    subgraph "Documentation"
+        J["README.md"]
+    end
+    
+    B -->|AJAX Calls| H
+    D -->|Feeds Data| E
+    G -->|Clears| A
+    F -->|Manages| D
+
+    classDef php fill:#8892BF,color:white,stroke:#555;
+    classDef js fill:#F7DF1E,stroke:#555;
+    classDef css fill:#2965F1,color:white,stroke:#555;
+    classDef db fill:#00758F,color:white,stroke:#555;
+    classDef doc fill:#85EA2D,stroke:#555;
+    
+    class A,B,C,E,F,G php;
+    class H js;
+    class I css;
+    class D db;
+    class J doc;
 
